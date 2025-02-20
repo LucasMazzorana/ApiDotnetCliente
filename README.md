@@ -1,10 +1,23 @@
-# ApiDotnetCliente
-Api de clientes: 
-, .net 5.0
-, Entity Framework
-, Banco de dados postgree
-,Segue Script para rodar no postgree
+## Projeto backend .net com Entity Framework e banco PostgreSQL  
 
+### Tecnologia utilizada   
+
+* SDK .net 5   
+* C#
+* Entity Framework   
+* PostgreSQL   
+
+### PostgreSQL
+
+##### String de conexao adicionada no appsettings.json  
+```json
+  "ConnectionStrings": {
+    "PostgreConnection": "Server=localhost;Port=5432;Database=postgres;User Id=postgres;Password=*****;"
+  },
+```
+
+##### Script de criação da tabela
+```sql
 -- Table: public.TB_CLIENTE
 
 -- DROP TABLE IF EXISTS public."TB_CLIENTE";
@@ -78,10 +91,81 @@ COMMENT ON COLUMN public."TB_CLIENTE"."TELEFONE_CLIENTE"
 
 COMMENT ON COLUMN public."TB_CLIENTE".data_criacao
     IS 'data da criação do cliente';
+```
+
+### Execucao do app (para subir a aplicação)
+```dotnet
+dotnet run
+```   
+
+### Swagger   
+
+##### Para testar os endpoints, abrir no browser a seguinte URL:   
+
+* (https://localhost:5001/swagger)
 
 
+### Postman   
 
-String de conexão do projeto
-     "ConnectionStrings": {
-    "PostgreSQLConnection": "Server=localhost;Port=5432;Database=postgres;User Id=postgres;Password=****"
-  }
+##### Criar um cliente:   
+
+POST para (http://localhost:5000/cadastrar-cliente)
+
+Exemplo de Json Request
+```json
+{
+  "idCliente": 0,
+  "cnpj": "string",
+  "nomeCliente": "string",
+  "email": "user@example.com",
+  "telefone": "string",
+  "cep": "string",
+  "pais": "string",
+  "estado": "string",
+  "cidade": "string",
+  "bairro": "string",
+  "logradouro": "string",
+  "numero": "string",
+  "complemento": "string"
+}
+```
+
+##### Listar todos os clientes:   
+
+GET para (http://localhost:5000/listar-todos)
+
+
+##### Alterar um cliente por ID:   
+
+PUT para (http://localhost:5000/alterar-cliente/{IdCliente})
+
+Exemplo de Json Request
+```json
+{
+  "idCliente": 0,
+  "cnpj": "string",
+  "nomeCliente": "string",
+  "email": "user@example.com",
+  "telefone": "string",
+  "cep": "string",
+  "pais": "string",
+  "estado": "string",
+  "cidade": "string",
+  "bairro": "string",
+  "logradouro": "string",
+  "numero": "string",
+  "complemento": "string"
+}
+```
+
+
+##### Remover um cliente por ID:   
+
+DELETE para (http://localhost:5000/excluir-cliente/{IdCliente})
+
+
+##### Recuperar um cliente por ID:   
+
+GET para (http://localhost:5000/pesquisa-por-id/{IdCliente})
+
+
