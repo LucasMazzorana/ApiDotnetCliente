@@ -78,3 +78,10 @@ COMMENT ON COLUMN public."TB_CLIENTE"."TELEFONE_CLIENTE"
 
 COMMENT ON COLUMN public."TB_CLIENTE".data_criacao
     IS 'data da criação do cliente';
+
+
+
+String de conexão do projeto
+     "ConnectionStrings": {
+    "PostgreSQLConnection": "Server=localhost;Port=5432;Database=postgres;User Id=postgres;Password=****"
+  }
