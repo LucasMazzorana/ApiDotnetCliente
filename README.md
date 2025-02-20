@@ -1,9 +1,9 @@
 # ApiDotnetCliente
 Api de clientes: 
- .net 5.0
- Entity Framework
- Banco de dados postgree
-Segue Script para rodar no postgree
+, .net 5.0
+, Entity Framework
+, Banco de dados postgree
+,Segue Script para rodar no postgree
 
 -- Table: public.TB_CLIENTE
 
